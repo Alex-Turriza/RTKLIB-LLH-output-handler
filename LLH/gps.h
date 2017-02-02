@@ -11,7 +11,7 @@
 #include <errno.h> //Usado por errno
 #include <cstdio> //Usado por perror
 
-#define _FIXVALUE_ 2.5 //Valor parámetro para indicar si señal es fiable o no del GPS.
+#define _FIXVALUE_ 2.5 //Valor parámetro para indicar si señal del GPS es fiable o no.
 
 int leeSckt(int fdSocket, void * buf, size_t bytes);
 
@@ -20,6 +20,7 @@ class GPS
    private:
 	mensaje msj;
 	std::string buf;
+	std::mutex Mutex;
    public:
 	GPS();
 
@@ -47,7 +48,7 @@ class GPS
 
 	/*Más funciones de interés*/
 	int actBuffer(int fd); //Función que actualizará el buffer del objeto GPS.
-	int actualizaDatos();
+	int actualizaDatos(int fd); //Función que actualiza el objeto Mensaje. Contiene a actBuffer y actualización del objeto Mensaje en uno solo.
 	int fix(); //Indicará gran certeza de datos.
 };
 

@@ -112,7 +112,7 @@ int GPS::actBuffer(int fd) //Función que actualizará el buffer del objeto GPS
 	{
 		if(leeSckt(fd, &buffer, sizeof(buffer)) == sizeof(buffer))
 		{
-			if(buffer == '\n') //'\n' indica el final del mensaje.
+			if(buffer == '\n') //'\n' indica el final del mensaje para sistemas UNIX (LF 0x0A).
 			{
 				return 0;
 			}
@@ -122,12 +122,16 @@ int GPS::actBuffer(int fd) //Función que actualizará el buffer del objeto GPS
 	}
 }
 
-int GPS::actualizaDatos()
+int GPS::actualizaDatos(int fd)
 {
+	this->Mutex.lock();
+	this->actBuffer(fd);
 	if(this->msj.actualizaMsj(this->buf))
 	{
+		this->Mutex.unlock();
 		return -1; //Ha ocurrido un error o algo inesperado.
 	}
+	this->Mutex.unlock();
 	buf = "";
 	return 0;
 }

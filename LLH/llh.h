@@ -7,6 +7,7 @@
 #ifndef LLH_H_
 #define LLH_H_
 
+#include <mutex> //Usado por objeto de tipo Mutex
 #include "sdev.h"
 
 //Para más información consulte Apéndice B página 101 del manual de RTKLIB 2.4.2
