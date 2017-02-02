@@ -1,19 +1,3 @@
-#all: Init 
-
-#CXXFLAGS=-g -I ./LLH -std=c++11
-
-#Init: makeObjs
-#	g++ $(CXXFLAGS) -o GPSHandler objs/GPSHandler.o
-
-#makeObjs:
-#	g++ $(CXXFLAGS) -c -o objs/sdev.o LLH/sdev.h
-#	g++ $(CXXFLAGS) -c -o objs/llh.o LLH/llh.h
-#	g++ $(CXXFLAGS) -c -o objs/gps.o LLH/gps.h
-#	g++ $(CXXFLAGS) -c -o objs/GPSHandler.o GPSHandler.cpp
-
-#clean:
-#	rm objs/*.o GPSHandler
-
 all:GPSHandler
 
 CXXFLAGS=-g -I ./LLH -std=c++11
