@@ -88,6 +88,8 @@ void imprimeGPS(GPS * ugps)
 	}
 }
 
+/**FIN DE FUNCIONES PARA MANEJO DE INFORMACIÓN DEL GPS MEDIANTE THREADS**/
+
 int main()
 {
 	GPS ubloxC94;
