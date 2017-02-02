@@ -1,6 +1,6 @@
 all:GPSHandler
 
-CXXFLAGS=-g -I ./LLH -std=c++11
+CXXFLAGS=-g -I ./LLH -std=c++11 -pthread
 
 GPSHandler: objs/sdev.o objs/llh.o objs/gps.o objs/GPSHandler.o
 	$(CXX) $(CXXFLAGS) objs/GPSHandler.o objs/gps.o objs/llh.o objs/sdev.o -o GPSHandler
