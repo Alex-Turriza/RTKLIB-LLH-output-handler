@@ -46,6 +46,8 @@ class GPS
 	void setstDev(std::string * ST);
 	void setAge(std::string ag);
 	void setRatio(std::string r);
+	void lockMutex();
+	void unlockMutex();
 
 	/*Más funciones de interés*/
 	int actBuffer(int fd); //Función que actualizará el buffer del objeto GPS.

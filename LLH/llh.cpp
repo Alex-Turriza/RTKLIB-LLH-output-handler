@@ -2,7 +2,8 @@
 
 mensaje::mensaje()
 {
-	this->fecha = this->horaSat = this->lat = this->lon = this->alt = this->age = this->ratio = this->solStat = this->numSat = ""; 
+	this->fecha = this->horaSat = this->lat = this->lon = this->alt = this->age = this->solStat = this->numSat = ""; 
+	this->ratio = "0.0";
 }
 
 mensaje::~mensaje()

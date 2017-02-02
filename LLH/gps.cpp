@@ -102,6 +102,16 @@ void GPS::setRatio(std::string r)
 	this->msj.setRatio(r);
 }
 
+void GPS::lockMutex()
+{
+	this->Mutex.lock();
+}
+
+void GPS::unlockMutex()
+{
+	this->Mutex.unlock();
+}
+
 /*Más funciones de interés*/
 int GPS::actBuffer(int fd) //Función que actualizará el buffer del objeto GPS
 {
@@ -139,5 +149,5 @@ int GPS::actualizaDatos(int fd)
 int GPS::fix()
 {
 	//Regresa 1 si ratio > 2.5, regresa 0 en otro caso.
-	return (stoi(this->msj.getRatio()) > _FIXVALUE_);
+	return (stof(this->msj.getRatio()) > _FIXVALUE_);
 }
