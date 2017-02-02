@@ -10,6 +10,7 @@
 #include <unistd.h> //Usado por read()
 #include <errno.h> //Usado por errno
 #include <cstdio> //Usado por perror
+#include <mutex> //Usado por objeto de tipo Mutex
 
 #define _FIXVALUE_ 2.5 //Valor parámetro para indicar si señal del GPS es fiable o no.
 
