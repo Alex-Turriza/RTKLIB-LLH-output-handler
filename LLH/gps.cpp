@@ -139,8 +139,8 @@ int GPS::actBuffer(int fd) //Función que actualizará el buffer del objeto GPS
 
 int GPS::actualizaDatos(int fd)
 {
-	this->Mutex.lock();
 	this->actBuffer(fd);
+	this->Mutex.lock();
 	if(this->msj.actualizaMsj(this->buf))
 	{
 		this->Mutex.unlock();

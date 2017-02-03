@@ -64,43 +64,36 @@ std::string mensaje::getRatio()
 /*FUNCIONES DE TIPO SET*/
 void mensaje::setFecha(std::string f)
 {
-	std::cout << "Voy a asignar el string fecha: " << f << std::endl;
 	this->fecha = f;
 }
 	
 void mensaje::setHoraSat(std::string hs)
 {
-	std::cout << "Voy a asignar el string horasat: " << hs << std::endl;
 	this->horaSat = hs;
 }
 
 void mensaje::setLat(std::string lt)
 {
-	std::cout << "Voy a asignar el string lat: " << lt << std::endl;
 	this->lat = lt;
 }
 
 void mensaje::setLon(std::string ln)
 {
-	std::cout << "Voy a asignar el string lon: " << ln << std::endl;
 	this->lon = ln;
 }
 
 void mensaje::setAlt(std::string at)
 {
-	std::cout << "Voy a asignar el string alt: " << at << std::endl;
 	this->alt = at; 
 }
 
 void mensaje::setSolStat(std::string ss)
 {
-	std::cout << "Voy a asignar el string solstat: " << ss << std::endl;
 	this->solStat = ss;
 }
 
 void mensaje::setNumSat(std::string ns)
 {
-	std::cout << "Voy a asignar el string numsat: " << ns << std::endl;
 	this->numSat = ns;
 }
 
@@ -111,13 +104,11 @@ int mensaje::setstDev(std::string * stdev)
 
 void mensaje::setAge(std::string ag)
 {
-	std::cout << "Voy a asignar el string age: " << ag << std::endl;
 	this->age = ag;
 }
 
 void mensaje::setRatio(std::string r)
 {
-	std::cout << "Voy a asignar el string ratio: " << r << std::endl;
 	this->ratio = r;
 }
 
