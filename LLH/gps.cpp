@@ -50,6 +50,11 @@ std::string GPS::getNumSat()
 {
 	return this->msj.getNumSat();
 }
+
+std::string GPS::getRatio()
+{
+	return this->msj.getRatio();
+}
 	
 /*Conjunto de funciones set*/
 void GPS::setFecha(std::string f)

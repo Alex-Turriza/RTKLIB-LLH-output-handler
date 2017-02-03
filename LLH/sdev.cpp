@@ -2,10 +2,14 @@
 
 int borraString(std::string * str, int valor)
 {
-	//Función que recibe un puntero a un string. Borra el string desde el principio del mismo hasta un determinado offset.
+	//Función que recibe un puntero a un string. Borra el string desde el principio del mismo hasta un determinado offset, el rango borrado es: [0, valor]. Si posee espacios en blanco al inicio del nuevo string, los elimina.
 	if(str->erase(str->begin(), str->begin() + (++valor)) == str->end())
 	{
 		return -1;
+	}
+	while(str->at(0) == ' ')
+	{
+		str->erase(str->begin(), str->begin() + 1);
 	}
 	return 0;
 }

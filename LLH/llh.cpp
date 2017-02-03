@@ -64,36 +64,43 @@ std::string mensaje::getRatio()
 /*FUNCIONES DE TIPO SET*/
 void mensaje::setFecha(std::string f)
 {
+	std::cout << "Voy a asignar el string fecha: " << f << std::endl;
 	this->fecha = f;
 }
 	
 void mensaje::setHoraSat(std::string hs)
 {
+	std::cout << "Voy a asignar el string horasat: " << hs << std::endl;
 	this->horaSat = hs;
 }
 
 void mensaje::setLat(std::string lt)
 {
+	std::cout << "Voy a asignar el string lat: " << lt << std::endl;
 	this->lat = lt;
 }
 
 void mensaje::setLon(std::string ln)
 {
+	std::cout << "Voy a asignar el string lon: " << ln << std::endl;
 	this->lon = ln;
 }
 
 void mensaje::setAlt(std::string at)
 {
+	std::cout << "Voy a asignar el string alt: " << at << std::endl;
 	this->alt = at; 
 }
 
 void mensaje::setSolStat(std::string ss)
 {
+	std::cout << "Voy a asignar el string solstat: " << ss << std::endl;
 	this->solStat = ss;
 }
 
 void mensaje::setNumSat(std::string ns)
 {
+	std::cout << "Voy a asignar el string numsat: " << ns << std::endl;
 	this->numSat = ns;
 }
 
@@ -104,11 +111,13 @@ int mensaje::setstDev(std::string * stdev)
 
 void mensaje::setAge(std::string ag)
 {
+	std::cout << "Voy a asignar el string age: " << ag << std::endl;
 	this->age = ag;
 }
 
 void mensaje::setRatio(std::string r)
 {
+	std::cout << "Voy a asignar el string ratio: " << r << std::endl;
 	this->ratio = r;
 }
 
@@ -116,8 +125,10 @@ int mensaje::actualizaMsj(std::string buffer)
 {
 	int value;
 	int iteracion = 0;
+	//value = buffer.find_first_of(" ");
 	do
 	{
+		//Comentar todo el if si la solución del comentario de los switch-case es implementada.
 		if((value = buffer.find_first_of(" ")) == buffer.npos)
 		{
 			//Hemos alcanzado la última parte del mensaje.
@@ -125,8 +136,10 @@ int mensaje::actualizaMsj(std::string buffer)
 			setRatio(buffer);
 			return 0; //Asignación completa
 		}
+
 		switch(iteracion++)
 		{
+			//Posible solución: asignar valor value tras cada case.
 			case 0:
 				setFecha(buffer.substr(0, value));
 				if(borraString(&buffer, value))
@@ -144,7 +157,7 @@ int mensaje::actualizaMsj(std::string buffer)
 				break;
 			case 3:
 				setLon(buffer.substr(0, value));
-				if(borraString(&buffer, value))
+				if(borraString(&buffer, ++value))
 					return -1;
 				break;
 			case 4:
@@ -173,6 +186,14 @@ int mensaje::actualizaMsj(std::string buffer)
 				if(borraString(&buffer, value))
 					return -1;
 				break;
+			case 9:
+				setRatio(buffer.substr(0, value));
+				if(borraString(&buffer, value))
+					return -1;
+				break;
+			default:
+				std::cout << std::endl;
+				return 0;
 		}
 	}
 	while(true);
