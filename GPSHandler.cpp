@@ -6,7 +6,7 @@
 * Por Alex A. Turriza Suárez - 2017
 **/
 
-#include <iostream>
+//#include <iostream> //Inicializado en gps.h
 #include <sys/socket.h> //Usado por socket()
 //#include <unistd.h> //Usado por fork(), ya inicializado en gps.h
 //#include <errno.h> //Usado por errno, ya inicializado en gps.h
@@ -17,7 +17,7 @@
 #include "gps.h" //Usado por objeto GPS
 
 #ifndef _PUERTORTKLIB_
-#define _PUERTORTKLIB_ 8988
+#define _PUERTORTKLIB_ 8989
 #endif
 
 #ifndef _DIRECHOST_
@@ -83,12 +83,11 @@ void imprimeGPS(GPS * ugps)
 		else
 		{
 			std::cout << "Esperando señal ..." << std::endl;
+			std::cout << "Valor actual de ratio: " << ugps->getRatio() << std::endl;
 			sleep(1);
 		}
 	}
 }
-
-/**FIN DE FUNCIONES PARA MANEJO DE INFORMACIÓN DEL GPS MEDIANTE THREADS**/
 
 int main()
 {
@@ -104,11 +103,11 @@ int main()
 		}
 		else
 		{
-			if(execl("rtkrcv", "rtkrcv", "-s", "-o", "uuuu.conf", NULL))
-			{
-				perror("Execl() ERROR:");
-				return (-1);
-			}
+			//if(execl("rtkrcv", "rtkrcv", "-s", "-o", "uuuu.conf", NULL))
+			//{
+			//	perror("Execl() ERROR:");
+			//	return (-1);
+			//}
 		}
 	}
 	else
@@ -120,10 +119,11 @@ int main()
 			{
 				//Conexión exitosa.
 				std::cout << "Conexión exitosa" << std::endl;
+				std::cout << "El file descriptor es: " << fd << std::endl;
 
 				//RUTINA DE MANEJO DE GPS
 				std::thread(actualiza, &ubloxC94, fd).detach();
-				std::thread(imprimeGPS, &ubloxC94).detach();
+				std::thread(imprimeGPS, &ubloxC94).join();
 			}
 		}
 		if(close(fd))
