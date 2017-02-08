@@ -12,13 +12,12 @@
 #include <cstdio> //Usado por perror
 #include <mutex> //Usado por objeto de tipo Mutex
 
-#define _FIXVALUE_ 1.2 //Valor parámetro para indicar si señal del GPS es fiable o no.
+#define _FIXVALUE_ 2.5 //Valor parámetro para indicar si señal del GPS es fiable o no.
 
 int leeSckt(int fdSocket, void * buf, size_t bytes);
 
 class GPS
 {
-   private:
 	mensaje msj;
 	std::string buf;
 	std::mutex Mutex;

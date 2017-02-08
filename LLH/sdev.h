@@ -15,7 +15,6 @@ int borraString(std::string * str, int valor);
 /*Más información acerca de los miembros de la clase en Apéndice B página 102 Manual de RTKLIB 2.4.2*/
 class stDev
 {
-    private:
 	std::string north; //componente Norte (N) de la desviación estándar (m).
 	std::string east; //componente Este (E) de la desviación estándar (m).
 	std::string up; //componente Arriba (U) de la desviación estándar (m).

@@ -13,7 +13,6 @@
 //Para más información consulte Apéndice B página 101 del manual de RTKLIB 2.4.2
 class mensaje
 {
-    private:
 	std::string fecha; //Indica año, mes y día yyyy/mm/dd.
 	std::string horaSat; //Indica hora, minuto y segundos HH:MM:SS.SSS.
 	std::string lat; //Latitud.
